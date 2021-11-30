@@ -1,7 +1,8 @@
 package careerdevs.capstone.HotelApp.Contollers;
 
+import careerdevs.capstone.HotelApp.Model.Guest;
 import careerdevs.capstone.HotelApp.Model.Room;
-import careerdevs.capstone.HotelApp.Repository.RoomRepository;
+import careerdevs.capstone.HotelApp.Repository.GuestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,21 +10,20 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/user")
-public class RoomController {
+@RequestMapping("/api/rooms")
+public class GuestController {
 
     @Autowired
-    private RoomRepository repo;
+    private GuestRepository repo;
 
     @GetMapping("/test")
-    public String test(){
-        return "Check one two!";
+    public String test() {
+        return "Testing one two, one two!";
     }
 
     @GetMapping("/") //gets all the rooms
-    public @ResponseBody List<Room> getAllRooms(){
+    public @ResponseBody
+    List<Guest> getAllRooms() {
         return repo.findAll();
     }
-
-
 }
